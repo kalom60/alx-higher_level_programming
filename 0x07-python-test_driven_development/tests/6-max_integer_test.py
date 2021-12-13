@@ -27,7 +27,7 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([i * 10 for i in new_list]), 100)
 
     def test_only_one_number(self):
-        self.assertEqual(max_integer[5], 5)
+        self.assertEqual(max_integer([5]), 5)
 
     def test_string_in_list(self):
         with self.assertRaises(TypeError):
