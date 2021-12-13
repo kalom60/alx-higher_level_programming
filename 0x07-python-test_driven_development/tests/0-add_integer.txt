@@ -1,0 +1,92 @@
+The "0-add_integer" module
+==========================
+
+Using "add_integer"
+------------------
+
+Importing the function from the module:
+	>>> add_inteher = __import__("0-add_integer").add_integer
+
+checking normal addition:
+	>>> add_integer(7, 4)
+	11
+
+checking posititve with negative:
+	>>> add_integer(5, -3)
+	2
+
+checking negative and positive:
+	>>> add_integer(-15, 2)
+	-13
+
+checking float:
+	>>> add_integer(12.7, 7.3)
+	20
+
+checking float with int:
+	>>> add_integer(5.4, 4)
+	9
+
+checking int with float:
+	>>> add_integer(9, 11.7)
+	21
+
+checking integer with string:
+	>>> add_integer(4, "School")
+	Traceback (most recent call last):
+		  ...
+	TypeError: b must be an integer
+
+checking passing None
+	>>> add_integer(None)
+	Traceback (most recent call last):
+	      	  ...
+    	TypeError: a must be an integer
+
+checking adding a letter and a number:
+	>>> add_integer('5', 8)
+	Traceback (most recent call last):
+		  ...
+	TypeError: a must be an integer
+
+checking adding two letters:
+	>>> add_integer('5', '8')
+	Traceback (most recent call last):
+		  ...
+	TypeError: a must be an integer
+
+checking a tuple:
+	>>> add_integer((5, 7))
+	Traceback (most recent call last):
+		  ...
+	TypeError: a must be an integer
+
+checking a list and number:
+	>>> add_integer([], 76)
+	Traceback (most recent call last):
+		  ...
+	TypeError: a must be an integer
+
+checking passing a string:
+	>>> add_integer("Star")
+	Traceback (most recent call last):
+		  ...
+	TypeError: a must be an integer
+
+checking case Overflow:
+	>>> add_integer(float('inf'), 8)
+	Traceback (most recent call last):
+		  ...
+	OverflowError: cannot convert float infinity to integer
+
+checking Case another Overflow:
+	>>> add_integer(float('inf'), float('-inf'))
+	Traceback (most recent call last):
+		  ...
+	OverflowError: cannot convert float infinity to integer
+
+checking Case NaN:
+	>>> add_integer(0, float('nan'))
+	Traceback (most recent call last):
+		  ...
+	ValueError: cannot convert float NaN to integer
