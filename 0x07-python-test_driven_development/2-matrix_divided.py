@@ -1,5 +1,30 @@
 #!/usr/bin/python3
+"""
+
+The 2-matrix_divided module supplies one function, matrix_divided(matrix, div)
+
+"""
+
+
 def matrix_divided(matrix, div):
+    """ Divides all elements in the matrix by div
+
+    Args:
+        matrix: list of a lists of integer/floats
+        div: number which divides the matrix
+
+    Returns:
+        A new matrix with the result of the division
+
+    Raises:
+        TyprError: If the elements of the matrix aren't lists
+                   If the elements of the lists aren't integers/floats
+                   If div is not an integer/float number
+                   If the lists of the matrix don't have the same size
+
+        ZeroDivisionError: If div is zero
+
+    """
     if type(matrix) is not list:
         raise TypeError(
                 "matrix must be a matrix (list of lists) of integers/floats")
