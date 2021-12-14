@@ -24,6 +24,7 @@ def matrix_divided(matrix, div):
 
         ZeroDivisionError: If div is zero
 
+
     """
     if type(matrix) is not list:
         raise TypeError(
