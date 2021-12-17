@@ -85,3 +85,9 @@ checking Passing div as a string
 checking Dividing a matrix which has positive and negative integer/float numbers
     >>> matrix_divided([[6, 11.06, 6], [56, 21.12, -89]], 12.21)
     [[0.49, 0.90, 0.49], [4.58, 1.72, -7.28]]
+
+checking Dividing a matrix which its rows don't have the same size:
+    >>> matrix_divided([[2, 4], [6.8], [10, 12]], 12)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: Each row of the matrix must have the same size
