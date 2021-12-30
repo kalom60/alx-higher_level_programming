@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Define a rectangle class"""
 from models.base import Base
+import sys
 
 
 class Rectangle(Base):
@@ -94,10 +95,21 @@ class Rectangle(Base):
 
     def display(self):
         """Prints the rectangle with "#" character"""
-        for x in range(self.__height):
-            for y in range(self.__width):
-                print("#", end="")
-            print()
+        numy = self.__y
+        for x in range(self.__height + self.__y):
+            if numy > 0:
+                numy -= 1
+                sys.stdout.write("")
+                print()
+            else:
+                numx = self.__x
+                for y in range(self.__width + self.__x):
+                    if numx > 0:
+                        numx -= 1
+                        sys.stdout.write(" ")
+                    else:
+                        sys.stdout.write("#")
+                print()
 
     def __str__(self):
         """Return print() and str() representation of the Rectangle."""
