@@ -119,7 +119,7 @@ class Rectangle(Base):
                                                        self.__width,
                                                        self.__height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Update the Rectangle
 
         Args:
@@ -129,26 +129,43 @@ class Rectangle(Base):
                 - 3rd argument represent height attribute
                 - 4th argument represents x attribute
                 - 5th argument represents y attribute
+            **kwargs (dict): New key/value pairs of attributes
         """
-        if args is None:
-            self.__init__(self.width, self.height, self.x, self.y)
-        elif len(args) == 1:
-            self.id = args[0]
-        elif len(args) == 2:
-            self.id = args[0]
-            self.width = args[1]
-        elif len(args) == 3:
-            self.id = args[0]
-            self.width = args[1]
-            self.height = args[2]
-        elif len(args) == 4:
-            self.id = args[0]
-            self.width = args[1]
-            self.height = args[2]
-            self.x = args[3]
-        elif len(args) == 5:
-            self.id = args[0]
-            self.width = args[1]
-            self.height = args[2]
-            self.x = args[3]
-            self.y = args[4]
+        if args and len(args) != 0:
+            if args is None:
+                self.__init__(self.width, self.height, self.x, self.y)
+            elif len(args) == 1:
+                self.id = args[0]
+            elif len(args) == 2:
+                self.id = args[0]
+                self.width = args[1]
+            elif len(args) == 3:
+                self.id = args[0]
+                self.width = args[1]
+                self.height = args[2]
+            elif len(args) == 4:
+                self.id = args[0]
+                self.width = args[1]
+                self.height = args[2]
+                self.x = args[3]
+            elif len(args) == 5:
+                self.id = args[0]
+                self.width = args[1]
+                self.height = args[2]
+                self.x = args[3]
+                self.y = args[4]
+        elif kwargs and len(kwargs) != 0:
+            for k, v in kwargs.items():
+                if k == 'id':
+                    if v is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = v
+                elif k == 'width':
+                    self.width = v
+                elif k == 'height':
+                    self.height = v
+                elif k == 'x':
+                    self.x = v
+                elif k == 'y':
+                    self.y = v
