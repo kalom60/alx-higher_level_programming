@@ -50,3 +50,18 @@ class Base:
             else:
                 list_dicts = [i.to_dictionary() for i in list_objs]
                 f.write(Base.to_json_string(list_dicts))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Return the deserialization of a JSON string
+
+        Args:
+            json_string (str): A JSON str representation of a list of dicts
+
+        Returns:
+            If json_string is None or empty - an empty list
+            else - the Python list represented by json_string
+        """
+        if json_string is None or len(json_string) == 0:
+            return []
+        return json.loads(json_string)
