@@ -47,10 +47,10 @@ class Base:
         filename = cls.__name__ + ".json"
         with open(filename, 'w') as f:
             if list_objs is None:
-                f.write([])
+                f.write(str([]))
             else:
                 list_dicts = [i.to_dictionary() for i in list_objs]
-                f.write(Base.to_json_string(list_dicts))
+                f.write(str(Base.to_json_string(list_dicts)))
 
     @staticmethod
     def from_json_string(json_string):
@@ -108,7 +108,7 @@ class Base:
             list_objs (list): A list of inherited Base instances
         """
         filename = cls.__name__ + ".csv"
-        with open(filename, 'w') as f:
+        with open(filename, 'w', newline="") as f:
             if list_objs is None or list_objs == []:
                 f.write("[]")
             else:
@@ -116,9 +116,9 @@ class Base:
                     fields = ["id", "width", "height", "x", "y"]
                 else:
                     fields = ["id", "size", "x", "y"]
-            to_write = csv.DictWriter(f, fieldnames=fields)
-            for obj in list_objs:
-                to_write.writerow(obj.to_dictionary())
+                to_write = csv.DictWriter(f, fieldnames=fields)
+                for obj in list_objs:
+                    to_write.writerow(obj.to_dictionary())
 
     @classmethod
     def load_from_file_csv(cls):
