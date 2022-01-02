@@ -46,34 +46,33 @@ class Square(Rectangle):
             **kwargs(dict): New key-value pairs of attributes
         """
         if args and len(args) != 0:
-            if args is None:
-                self.__init__(self.width, self.height, self.x, self.y)
-            elif len(args) == 1:
-                self.id = args[0]
-            elif len(args) == 2:
-                self.id = args[0]
-                self.size = args[1]
-            elif len(args) == 3:
-                self.id = args[0]
-                self.size = args[1]
-                self.x = args[2]
-            elif len(args) == 4:
-                self.id = args[0]
-                self.size = args[1]
-                self.x = args[2]
-                self.y = args[3]
+            num = 0
+            for arg in args:
+                if num == 0:
+                    if arg is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif num == 1:
+                    self.size = arg
+                elif num == 2:
+                    self.x = arg
+                elif num == 3:
+                    self.y = arg
+                num += 1
+
         elif kwargs and len(kwargs) != 0:
             for k, v in kwargs.items():
-                if k == 'id':
+                if k == "id":
                     if v is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
+                        self.__init__(self.size, self.x, self.y)
                     else:
                         self.id = v
-                elif k == 'size':
+                elif k == "size":
                     self.size = v
-                elif k == 'x':
+                elif k == "x":
                     self.x = v
-                elif k == 'y':
+                elif k == "y":
                     self.y = v
 
     def to_dictionary(self):
