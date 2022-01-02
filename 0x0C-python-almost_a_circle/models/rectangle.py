@@ -37,7 +37,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """Set the width of the rectangle"""
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("width must be an integer")
         elif value <= 0:
             raise ValueError("width must be > 0")
@@ -52,7 +52,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """Set the height of the rectangle"""
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("height must be an integer")
         elif value <= 0:
             raise ValueError("height must be > 0")
@@ -66,8 +66,8 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        """Set the x coordinater of the rectangle"""
-        if not isinstance(value, int):
+        """Set the x coordinator of the rectangle"""
+        if type(value) != int:
             raise TypeError("x must be an integer")
         elif value < 0:
             raise ValueError("x must be >= 0")
@@ -82,7 +82,7 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """Set the y coordinater of the rectangle"""
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError("y must be an integer")
         elif value < 0:
             raise ValueError("y must be >= 0")
@@ -132,42 +132,37 @@ class Rectangle(Base):
             **kwargs (dict): New key/value pairs of attributes
         """
         if args and len(args) != 0:
-            if args is None:
-                self.__init__(self.width, self.height, self.x, self.y)
-            elif len(args) == 1:
-                self.id = args[0]
-            elif len(args) == 2:
-                self.id = args[0]
-                self.width = args[1]
-            elif len(args) == 3:
-                self.id = args[0]
-                self.width = args[1]
-                self.height = args[2]
-            elif len(args) == 4:
-                self.id = args[0]
-                self.width = args[1]
-                self.height = args[2]
-                self.x = args[3]
-            elif len(args) == 5:
-                self.id = args[0]
-                self.width = args[1]
-                self.height = args[2]
-                self.x = args[3]
-                self.y = args[4]
+            num = 0
+            for arg in args:
+                if num == 0:
+                    if arg is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif num == 1:
+                    self.width = arg
+                elif num == 2:
+                    self.height = arg
+                elif num == 3:
+                    self.x = arg
+                elif num == 4:
+                    self.y = arg
+                num += 1
+
         elif kwargs and len(kwargs) != 0:
             for k, v in kwargs.items():
-                if k == 'id':
+                if k == "id":
                     if v is None:
                         self.__init__(self.width, self.height, self.x, self.y)
                     else:
                         self.id = v
-                elif k == 'width':
+                elif k == "width":
                     self.width = v
-                elif k == 'height':
+                elif k == "height":
                     self.height = v
-                elif k == 'x':
+                elif k == "x":
                     self.x = v
-                elif k == 'y':
+                elif k == "y":
                     self.y = v
 
     def to_dictionary(self):
