@@ -65,7 +65,8 @@ class TestRectangle_instantiation(unittest.TestCase):
             Rectangle(1, 2, 3, 4, 5, 6)
 
     def test_width_private(self):
-        """Function that test rectangle by trying to access the private width directly"""
+        """Function that test rectangle by trying to
+        access the private width directly"""
         with self.assertRaises(AttributeError):
             print(Rectangle(5, 5, 0, 0, 1).__width)
 
@@ -75,12 +76,14 @@ class TestRectangle_instantiation(unittest.TestCase):
             print(Rectangle(5, 5, 0, 0, 1).__height)
 
     def test_x_private(self):
-        """Function that test rectangle by trying to access private x directly"""
+        """Function that test rectangle by trying
+        to access private x directly"""
         with self.assertRaises(AttributeError):
             print(Rectangle(5, 5, 0, 0, 1).__x)
 
     def test_y_private(self):
-        """Function that test rectangle by trying to access private y directly"""
+        """Function that test rectangle by trying
+        to access private y directly"""
         with self.assertRaises(AttributeError):
             print(Rectangle(5, 5, 0, 0, 1).__y)
 
