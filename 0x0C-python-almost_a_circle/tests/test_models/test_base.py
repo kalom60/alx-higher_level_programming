@@ -250,7 +250,8 @@ class TestBase_save_to_file(unittest.TestCase):
             Rectangle.save_to_file()
 
     def test_save_to_file_more_than_one_arg(self):
-        """Function that test save_to_file method with more than one argument"""
+        """Function that test save_to_file method
+        with more than one argument"""
         with self.assertRaises(TypeError):
             Square.save_to_file([], 1)
 
@@ -313,7 +314,8 @@ class TestBase_from_json_string(unittest.TestCase):
             Base.from_json_string()
 
     def test_from_json_string_more_than_one_arg(self):
-        """Function that test the from_json_string method with more than one argument"""
+        """Function that test the from_json_string
+        method with more than one argument"""
         with self.assertRaises(TypeError):
             Base.from_json_string([], 1)
 
@@ -394,7 +396,8 @@ class TestBase_load_from_file(unittest.TestCase):
             pass
 
     def test_load_from_file_first_rectangle(self):
-        """Function that test the load_from_file method with the first rectangle out of two"""
+        """Function that test the load_from_file method
+        with the first rectangle out of two"""
         r1 = Rectangle(10, 7, 2, 8, 1)
         r2 = Rectangle(2, 4, 5, 6, 2)
         Rectangle.save_to_file([r1, r2])
@@ -402,7 +405,8 @@ class TestBase_load_from_file(unittest.TestCase):
         self.assertEqual(str(r1), str(list_rectangles_output[0]))
 
     def test_load_from_file_second_rectangle(self):
-        """Function that test the load_from_file method with the second rectangle out of two"""
+        """Function that test the load_from_file method
+        with the second rectangle out of two"""
         r1 = Rectangle(10, 7, 2, 8, 1)
         r2 = Rectangle(2, 4, 5, 6, 2)
         Rectangle.save_to_file([r1, r2])
@@ -418,7 +422,8 @@ class TestBase_load_from_file(unittest.TestCase):
         self.assertTrue(all(type(obj) == Rectangle for obj in output))
 
     def test_load_from_file_first_square(self):
-        """Function that test the load_from_file method with the first square out of two"""
+        """Function that test the load_from_file method
+        with the first square out of two"""
         s1 = Square(5, 1, 3, 3)
         s2 = Square(9, 5, 2, 3)
         Square.save_to_file([s1, s2])
@@ -426,7 +431,8 @@ class TestBase_load_from_file(unittest.TestCase):
         self.assertEqual(str(s1), str(list_squares_output[0]))
 
     def test_load_from_file_second_square(self):
-        """Function that test the load_from_file method with the second square out of two"""
+        """Function that test the load_from_file method
+        with the second square out of two"""
         s1 = Square(5, 1, 3, 3)
         s2 = Square(9, 5, 2, 3)
         Square.save_to_file([s1, s2])
@@ -447,7 +453,8 @@ class TestBase_load_from_file(unittest.TestCase):
         self.assertEqual([], output)
 
     def test_load_from_file_more_than_one_arg(self):
-        """Function that test the load_from_file method with more than one argument"""
+        """Function that test the load_from_file method
+        with more than one argument"""
         with self.assertRaises(TypeError):
             Base.load_from_file([], 1)
 
@@ -479,7 +486,8 @@ class TestBase_save_to_file_csv(unittest.TestCase):
             self.assertTrue("5,10,7,2,8", f.read())
 
     def test_save_to_file_csv_two_rectangles(self):
-        """Function that test the save_to_file_csv method with two rectangles"""
+        """Function that test the save_to_file_csv
+        method with two rectangles"""
         r1 = Rectangle(10, 7, 2, 8, 5)
         r2 = Rectangle(2, 4, 1, 2, 3)
         Rectangle.save_to_file_csv([r1, r2])
@@ -509,7 +517,8 @@ class TestBase_save_to_file_csv(unittest.TestCase):
             self.assertTrue("8,10,7,2", f.read())
 
     def test_save_to_file_csv_overwrite(self):
-        """Function that test the save_to_file_csv method with overwriting file"""
+        """Function that test the save_to_file_csv
+        method with overwriting file"""
         s = Square(9, 2, 39, 2)
         Square.save_to_file_csv([s])
         s = Square(10, 7, 2, 8)
@@ -535,7 +544,8 @@ class TestBase_save_to_file_csv(unittest.TestCase):
             Rectangle.save_to_file_csv()
 
     def test_save_to_file_csv_more_than_one_arg(self):
-        """Function that test the save_to_file_csv method with more than one argument"""
+        """Function that test the save_to_file_csv
+        method with more than one argument"""
         with self.assertRaises(TypeError):
             Square.save_to_file_csv([], 1)
 
@@ -556,7 +566,8 @@ class TestBase_load_from_file_csv(unittest.TestCase):
             pass
 
     def test_load_from_file_csv_first_rectangle(self):
-        """Function that test the load_from_file_csv method with first rectangle out of two"""
+        """Function that test the load_from_file_csv
+        method with first rectangle out of two"""
         r1 = Rectangle(10, 7, 2, 8, 1)
         r2 = Rectangle(2, 4, 5, 6, 2)
         Rectangle.save_to_file_csv([r1, r2])
@@ -564,7 +575,8 @@ class TestBase_load_from_file_csv(unittest.TestCase):
         self.assertEqual(str(r1), str(list_rectangles_output[0]))
 
     def test_load_from_file_csv_second_rectangle(self):
-        """Function that test the load_from_file_csv method with second rectangle out of two"""
+        """Function that test the load_from_file_csv
+        method with second rectangle out of two"""
         r1 = Rectangle(10, 7, 2, 8, 1)
         r2 = Rectangle(2, 4, 5, 6, 2)
         Rectangle.save_to_file_csv([r1, r2])
@@ -572,7 +584,8 @@ class TestBase_load_from_file_csv(unittest.TestCase):
         self.assertEqual(str(r2), str(list_rectangles_output[1]))
 
     def test_load_from_file_csv_rectangle_types(self):
-        """Function that test the load_from_file_csv method with rectangle type"""
+        """Function that test the load_from_file_csv
+        method with rectangle type"""
         r1 = Rectangle(10, 7, 2, 8, 1)
         r2 = Rectangle(2, 4, 5, 6, 2)
         Rectangle.save_to_file_csv([r1, r2])
@@ -580,7 +593,8 @@ class TestBase_load_from_file_csv(unittest.TestCase):
         self.assertTrue(all(type(obj) == Rectangle for obj in output))
 
     def test_load_from_file_csv_first_square(self):
-        """Function that test the load_from_file_csv method with first square out of two"""
+        """Function that test the load_from_file_csv
+        method with first square out of two"""
         s1 = Square(5, 1, 3, 3)
         s2 = Square(9, 5, 2, 3)
         Square.save_to_file_csv([s1, s2])
@@ -588,7 +602,8 @@ class TestBase_load_from_file_csv(unittest.TestCase):
         self.assertEqual(str(s1), str(list_squares_output[0]))
 
     def test_load_from_file_csv_second_square(self):
-        """Function that test the load_from_file_csv method with second square out of two"""
+        """Function that test the load_from_file_csv
+        method with second square out of two"""
         s1 = Square(5, 1, 3, 3)
         s2 = Square(9, 5, 2, 3)
         Square.save_to_file_csv([s1, s2])
@@ -609,7 +624,8 @@ class TestBase_load_from_file_csv(unittest.TestCase):
         self.assertEqual([], output)
 
     def test_load_from_file_csv_more_than_one_arg(self):
-        """Function that test the load_from_file_csv method with more than one argument"""
+        """Function that test the load_from_file_csv
+        method with more than one argument"""
         with self.assertRaises(TypeError):
             Base.load_from_file_csv([], 1)
 
