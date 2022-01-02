@@ -64,7 +64,8 @@ class TestSquare_instantiation(unittest.TestCase):
             Square(1, 2, 3, 4, 5)
 
     def test_size_private(self):
-        """Function that test when trying to access the private attribute directly"""
+        """Function that test when trying to access
+        the private attribute directly"""
         with self.assertRaises(AttributeError):
             print(Square(10, 2, 3, 4).__size)
 
@@ -767,7 +768,8 @@ class TestSquare_to_dictionary(unittest.TestCase):
         self.assertDictEqual(correct, s.to_dictionary())
 
     def test_to_dictionary_no_object_changes(self):
-        """Function that test update method with to_dictionary no object changes"""
+        """Function that test update method with
+        to_dictionary no object changes"""
         s1 = Square(10, 2, 1, 2)
         s2 = Square(1, 2, 10)
         s2.update(**s1.to_dictionary())
