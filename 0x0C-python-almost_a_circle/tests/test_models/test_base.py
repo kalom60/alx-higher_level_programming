@@ -138,7 +138,7 @@ class TestBase_to_json_string(unittest.TestCase):
 
     def test_to_json_string_square_one_dict(self):
         """Function that test to_json_string method with one dictionary"""
-        s = Square(10, 20, 30, 40)
+        s = Square(10, 2, 3, 4)
         self.assertTrue(len(Base.to_json_string([s.to_dictionary()])) == 39)
 
     def test_to_json_string_square_two_dicts(self):
