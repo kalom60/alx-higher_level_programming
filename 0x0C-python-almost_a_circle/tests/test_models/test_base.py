@@ -150,11 +150,11 @@ class TestBase_to_json_string(unittest.TestCase):
 
     def test_to_json_string_empty_list(self):
         """Function that test to_json_string method with empty list"""
-        self.assertEqual([], Base.to_json_string([]))
+        self.assertEqual("[]", Base.to_json_string([]))
 
     def test_to_json_string_none(self):
         """Function that test to_json_string method with None"""
-        self.assertEqual([], Base.to_json_string(None))
+        self.assertEqual("[]", Base.to_json_string(None))
 
     def test_to_json_string_no_args(self):
         """Function that test to_json_string method with no arguments"""
