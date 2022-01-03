@@ -65,8 +65,8 @@ class TestRectangle_instantiation(unittest.TestCase):
             Rectangle(1, 2, 3, 4, 5, 6)
 
     def test_width_private(self):
-        """Function that test rectangle by trying to
-        access the private width directly"""
+        """Function that test rectangle by trying
+        to access the private width directly"""
         with self.assertRaises(AttributeError):
             print(Rectangle(5, 5, 0, 0, 1).__width)
 
@@ -95,8 +95,8 @@ class TestRectangle_instantiation(unittest.TestCase):
     def test_width_setter(self):
         """Function that test rectangle with width setter"""
         r = Rectangle(5, 7, 7, 5, 1)
-        r.width = 6
-        self.assertEqual(6, r.width)
+        r.width = 10
+        self.assertEqual(10, r.width)
 
     def test_height_getter(self):
         """Function that test rectangle with height getter"""
@@ -939,7 +939,7 @@ class TestRectangle_update_kwargs(unittest.TestCase):
 
 
 class TestRectangle_to_dictionary(unittest.TestCase):
-    """Unittests for testing to_dictionary method of the Rectangle class."""
+    """Unittests for testing to_dictionary method of the Rectangle class"""
 
     def test_to_dictionary_output(self):
         """Function that test to_dictionary output"""
