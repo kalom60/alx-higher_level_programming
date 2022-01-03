@@ -57,8 +57,8 @@ class TestBase_instantiation(unittest.TestCase):
     def test_public_id(self):
         """Function that tests the base class with public id"""
         t1 = Base(5)
-        t1.id = 10
-        self.assertEqual(10, t1.id)
+        t1.id = 6
+        self.assertEqual(6, t1.id)
 
     def test_private_nb_objects(self):
         """Function that tests the private nb_object"""
@@ -67,7 +67,7 @@ class TestBase_instantiation(unittest.TestCase):
 
     def test_id_string(self):
         """Function that test the base class with string id"""
-        self.assertEqual('python', Base('python').id)
+        self.assertEqual("python", Base("python").id)
 
     def test_id_float(self):
         """Function that test the base class with float id"""
@@ -294,7 +294,7 @@ class TestBase_from_json_string(unittest.TestCase):
         """Function that test the from_json_string method two square"""
         list_input = [
             {"id": 89, "size": 10, "height": 4},
-            {"id": 7, "size": 1, "height": 7}
+            {"id": 7, "size": 1, "height": 7},
         ]
         json_list_input = Square.to_json_string(list_input)
         list_output = Square.from_json_string(json_list_input)
