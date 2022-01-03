@@ -82,8 +82,8 @@ class TestSquare_instantiation(unittest.TestCase):
     def test_width_getter(self):
         """Function that test the getter of width"""
         s = Square(4, 1, 9, 2)
-        s.size = 6
-        self.assertEqual(6, s.width)
+        s.size = 8
+        self.assertEqual(8, s.width)
 
     def test_height_getter(self):
         """Function that test the getter of height"""
