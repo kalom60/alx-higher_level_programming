@@ -57,8 +57,8 @@ class TestBase_instantiation(unittest.TestCase):
     def test_public_id(self):
         """Function that tests the base class with public id"""
         t1 = Base(5)
-        t1.id = 6
-        self.assertEqual(6, t1.id)
+        t1.id = 10
+        self.assertEqual(10, t1.id)
 
     def test_private_nb_objects(self):
         """Function that tests the private nb_object"""
@@ -133,7 +133,7 @@ class TestBase_to_json_string(unittest.TestCase):
 
     def test_to_json_string_square_type(self):
         """Function that test to_json_string method with square"""
-        s = Square(10, 20, 30, 40)
+        s = Square(10, 2, 3, 4)
         self.assertEqual(str, type(Base.to_json_string([s.to_dictionary()])))
 
     def test_to_json_string_square_one_dict(self):
@@ -150,11 +150,11 @@ class TestBase_to_json_string(unittest.TestCase):
 
     def test_to_json_string_empty_list(self):
         """Function that test to_json_string method with empty list"""
-        self.assertEqual("[]", Base.to_json_string([]))
+        self.assertEqual([], Base.to_json_string([]))
 
     def test_to_json_string_none(self):
         """Function that test to_json_string method with None"""
-        self.assertEqual("[]", Base.to_json_string(None))
+        self.assertEqual([], Base.to_json_string(None))
 
     def test_to_json_string_no_args(self):
         """Function that test to_json_string method with no arguments"""
