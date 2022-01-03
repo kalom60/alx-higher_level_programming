@@ -82,8 +82,8 @@ class TestSquare_instantiation(unittest.TestCase):
     def test_width_getter(self):
         """Function that test the getter of width"""
         s = Square(4, 1, 9, 2)
-        s.size = 8
-        self.assertEqual(8, s.width)
+        s.size = 6
+        self.assertEqual(6, s.width)
 
     def test_height_getter(self):
         """Function that test the getter of height"""
@@ -161,27 +161,27 @@ class TestSquare_size(unittest.TestCase):
     def test_bytes_size(self):
         """Function that test size with byte"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square(b'Python')
+            Square(b"Python")
 
     def test_bytearray_size(self):
         """Function that test size with bytearray"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square(bytearray(b'abcdefg'))
+            Square(bytearray(b"abcdefg"))
 
     def test_memoryview_size(self):
         """Function that test size with memoryview"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square(memoryview(b'abcdefg'))
+            Square(memoryview(b"abcdefg"))
 
     def test_inf_size(self):
         """Function that test size with inf"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square(float('inf'))
+            Square(float("inf"))
 
     def test_nan_size(self):
         """Function that test size with nan"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square(float('nan'))
+            Square(float("nan"))
 
     # Test size values
     def test_negative_size(self):
@@ -256,27 +256,27 @@ class TestSquare_x(unittest.TestCase):
     def test_bytes_x(self):
         """Function that test x with bytes"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Square(1, b'Python')
+            Square(1, b"Python")
 
     def test_bytearray_x(self):
         """Function that test x with bytearray"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Square(1, bytearray(b'abcdefg'))
+            Square(1, bytearray(b"abcdefg"))
 
     def test_memoryview_x(self):
         """Function that test x with memoryview"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Square(1, memoryview(b'abcedfg'))
+            Square(1, memoryview(b"abcedfg"))
 
     def test_inf_x(self):
         """Function that test x with inf"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Square(1, float('inf'), 2)
+            Square(1, float("inf"), 2)
 
     def test_nan_x(self):
         """Function that test x with nan"""
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Square(1, float('nan'), 2)
+            Square(1, float("nan"), 2)
 
     def test_negative_x(self):
         """Function that test x with negative number"""
@@ -340,27 +340,27 @@ class TestSquare_y(unittest.TestCase):
     def test_bytes_y(self):
         """Function that test y with bytes"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            Square(1, 3, b'Python')
+            Square(1, 3, b"Python")
 
     def test_bytearray_y(self):
         """Function that test y with bytearray"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            Square(1, 3, bytearray(b'abcdefg'))
+            Square(1, 3, bytearray(b"abcdefg"))
 
     def test_memoryview_y(self):
         """Function that test y with memoryview"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            Square(1, 3, memoryview(b'abcedfg'))
+            Square(1, 3, memoryview(b"abcedfg"))
 
     def test_inf_y(self):
         """Function that test y with inf"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            Square(1, 1, float('inf'))
+            Square(1, 1, float("inf"))
 
     def test_nan_y(self):
         """Function that test y with nan"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            Square(1, 1, float('nan'))
+            Square(1, 1, float("nan"))
 
     def test_negative_y(self):
         """Function that test y with negative number"""
@@ -563,7 +563,7 @@ class TestSquare_update_args(unittest.TestCase):
         self.assertEqual(correct, str(s))
 
     def test_update_args_None_id_and_more(self):
-        """Function that test update method with id None and more """
+        """Function that test update method with id None and more"""
         s = Square(10, 10, 10, 10)
         s.update(None, 4, 5)
         correct = "[Square] ({}) 5/10 - 4".format(s.id)
@@ -764,7 +764,7 @@ class TestSquare_to_dictionary(unittest.TestCase):
     def test_to_dictionary_output(self):
         """Function that test update method with to_dictionary output"""
         s = Square(10, 2, 1, 1)
-        correct = {'id': 1, 'x': 2, 'size': 10, 'y': 1}
+        correct = {"id": 1, "x": 2, "size": 10, "y": 1}
         self.assertDictEqual(correct, s.to_dictionary())
 
     def test_to_dictionary_no_object_changes(self):
