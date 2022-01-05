@@ -2,6 +2,7 @@
 """Define a base model class"""
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -12,6 +13,7 @@ class Base:
     Attributes:
         __nb_objects (int): The number of instantiated Bases.
     """
+
     __nb_objects = 0
 
     def __init__(self, id=None):
@@ -45,7 +47,7 @@ class Base:
             list_objs (list): A list of inherited Base instances
         """
         filename = cls.__name__ + ".json"
-        with open(filename, 'w') as f:
+        with open(filename, "w") as f:
             if list_objs is None:
                 f.write(str([]))
             else:
@@ -94,7 +96,7 @@ class Base:
         """
         filename = cls.__name__ + ".json"
         try:
-            with open(filename, 'r') as f:
+            with open(filename, "r") as f:
                 list_dicts = Base.from_json_string(f.read())
                 return [cls.create(**dicts) for dicts in list_dicts]
         except IOError:
@@ -108,7 +110,7 @@ class Base:
             list_objs (list): A list of inherited Base instances
         """
         filename = cls.__name__ + ".csv"
-        with open(filename, 'w', newline="") as f:
+        with open(filename, "w", newline="") as f:
             if list_objs is None or list_objs == []:
                 f.write("[]")
             else:
@@ -132,14 +134,55 @@ class Base:
         """
         filename = cls.__name__ + ".csv"
         try:
-            with open(filename, 'r', newline="") as f:
+            with open(filename, "r", newline="") as f:
                 if cls.__name__ == "Rectangle":
                     fields = ["id", "width", "height", "x", "y"]
                 else:
                     fields = ["id", "size", "x", "y"]
                 list_dicts = csv.DictReader(f, fieldnames=fields)
-                list_dicts = [dict([k, int(v)] for k, v in dicts.items())
-                              for dicts in list_dicts]
+                list_dicts = [
+                    dict([k, int(v)] for k, v in dicts.items()) for dicts in list_dicts
+                ]
                 return [cls.create(**dicts) for dicts in list_dicts]
         except IOError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Opens a window and draws all the Rectangles and Squares
+
+        Args:
+            list_rectangles (list): list values of a rectangle
+            list_squares    (list): list values of a square
+        """
+        turt = turtle.Turtle()
+        turt.screen.bgcolor("#2e2e2e")
+        turt.pensize(4)
+
+        turt.color("#6879a4")
+        for rect in list_rectangles:
+            turt.showturtle()
+            turt.up()
+            turt.goto(rect.x, rect.y)
+            turt.down()
+            for i in range(2):
+                turt.forward(rect.width)
+                turt.left(90)
+                turt.forward(rect.height)
+                turt.left(90)
+            turt.hideturtle()
+
+        turt.color("#b93030")
+        for sq in list_squares:
+            turt.showturtle()
+            turt.up()
+            turt.goto(sq.x, sq.y)
+            turt.down()
+            for i in range(2):
+                turt.forward(sq.width)
+                turt.left(90)
+                turt.forward(sq.height)
+                turt.left(90)
+            turt.hideturtle()
+
+        turtle.exitonclick()
