@@ -9,6 +9,6 @@ if (process.argv.length < 4) {
     myArr[x - 2] = parseInt(process.argv[x]);
   }
 
-  myArr.sort();
-  console.log(myArr.at(-2));
+  myArr.sort(function (a, b) { return b - a; });
+  console.log(myArr[1]);
 }
