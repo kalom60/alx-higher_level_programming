@@ -1,4 +1,4 @@
-#! /usr/bin/node
+#!/usr/bin/node
 
 let value = parseInt(process.argv[2]);
 

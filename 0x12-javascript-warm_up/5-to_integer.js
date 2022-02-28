@@ -1,4 +1,4 @@
-#! /usr/bin/node
+#!/usr/bin/node
 
 const vari = parseInt(process.argv[2]);
 
