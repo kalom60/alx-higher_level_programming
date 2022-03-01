@@ -1,5 +1,10 @@
 #!/usr/bin/node
 
 exports.esrever = function (list) {
-  return list.sort(() => 1);
+
+  let rlist = [];
+  while (list.length > 0) {
+    rlist.push(list.pop());
+  }
+  return rlist;
 };
