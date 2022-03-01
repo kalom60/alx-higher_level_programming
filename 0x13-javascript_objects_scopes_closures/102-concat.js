@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/node
+#!/usr/bin/node
 
 const fs = require('fs');
 const data1 = fs.readFileSync(process.argv[2], 'utf-8');
