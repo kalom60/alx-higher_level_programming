@@ -16,12 +16,11 @@ if __name__ == '__main__':
         db=sys.argv[3],
         host='localhost',
         port=3306,
-        charset="utf8"
     )
 
     cur = db.cursor()
     sql_input = "SELECT * FROM states WHERE name\
-                LIKE '{}' ORDER BY id ASC".format(sys.argv[4])
+                LIKE BINARY '{}' ORDER BY id ASC".format(sys.argv[4])
     cur.execute(sql_input)
     data = cur.fetchall()
 
