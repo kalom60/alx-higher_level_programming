@@ -20,7 +20,6 @@ if __name__ == '__main__':
 
     Session = sessionmaker(bind=engine)
     Base.metadata.create_all(engine)
-
     session = Session()
 
     states = session.query(State).order_by(State.id).first()
@@ -28,6 +27,6 @@ if __name__ == '__main__':
     if states is None:
         print("Nothing")
     else:
-        print(f'{states.id}:{states.name}')
+        print('{}:{}'.format(states.id, states.name))
 
     session.close()
