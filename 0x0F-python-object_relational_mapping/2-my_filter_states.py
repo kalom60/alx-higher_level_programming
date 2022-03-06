@@ -10,6 +10,7 @@ import sys
 import MySQLdb
 
 if __name__ == '__main__':
+    """ Main code """
     db = MySQLdb.connect(
         user=sys.argv[1],
         passwd=sys.argv[2],
