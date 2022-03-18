@@ -1,6 +1,5 @@
-#!/opt/homebrew/bin/python3
+#!/usr/bin/python3
 """This script will get the value of X-Request-Id"""
-
 
 
 if __name__ == '__main__':
