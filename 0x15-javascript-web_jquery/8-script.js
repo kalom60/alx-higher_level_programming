@@ -4,7 +4,7 @@ $.get(
   function (data, status) {
     const res = data.results;
     for (let n = 0; n < res.length; n++) {
-      $('ul#list_movies').append($('<li>').text(res[n].title));
+      $('UL#list_movies').append($('<li>').text(res[n].title));
     }
   }
 );
